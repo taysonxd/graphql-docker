@@ -30,7 +30,9 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build -t taysonxd/graphql-docker:0.0.2 .
+        docker build -t taysonxd/graphql-docker:latest .
 
     - name: Push Docker Image
       run: |
         docker push taysonxd/graphql-docker:0.0.2
+        docker push taysonxd/graphql-docker:latest
