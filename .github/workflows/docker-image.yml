@@ -16,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
-        depth: 0
+        fetch-depth: 0
         
     - name: Docker login
       env:
@@ -26,3 +26,11 @@ jobs:
         echo "Iniciando login en Dockerhub"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Finalizando login"
+
+    - name: Build Docker Image
+      run: |
+        docker build -t taysonxd/graphql-docker:0.0.2 .
+
+    - name: Push Docker Image
+      run: |
+        docker push taysonxd/graphql-docker:0.0.2
