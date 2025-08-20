@@ -43,6 +43,8 @@ jobs:
         docker build -t taysonxd/graphql-docker:latest .
 
     - name: Push Docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         docker push taysonxd/graphql-docker:$NEW_VERSION
         docker push taysonxd/graphql-docker:latest
